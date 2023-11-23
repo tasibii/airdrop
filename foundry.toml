@@ -1,0 +1,57 @@
+[profile.default]
+auto_detect_solc = false
+block_timestamp = 1_680_220_800 # March 31, 2023 at 00:00 GMT
+bytecode_hash = "none"
+evm_version = "paris"           # See https://www.evmdiff.com/features?name=PUSH0&kind=opcode
+fuzz = { runs = 1_000 }
+gas_reports = ["*"]
+libs = ["lib"]
+optimizer = true
+optimizer_runs = 10_000
+out = "out"
+script = "script"
+solc = "0.8.22"
+src = "src"
+test = "test"
+
+[profile.ci]
+fuzz = { runs = 10_000 }
+verbosity = 4
+
+[fmt]
+bracket_spacing = true
+int_types = "long"
+line_length = 80
+multiline_func_header = "all"
+number_underscore = "thousands"
+quote_style = "double"
+tab_width = 4
+wrap_comments = true
+
+[etherscan]
+# testnet
+goerli = { key = "${ETHERSCAN_KEY}", url = "https://api-goerli.etherscan.io/api" }
+tbsc = { key = "${BSCSCAN_KEY}", url = "https://api-testnet.bscscan.com/api" }
+fuji = { key = "${SNOWTRACE_KEY}", url = "https://api-testnet.snowtrace.io/api" }
+mumbai = { key = "${POLYGONSCAN_KEY}", url = "https://api-testnet.polygonscan.com/api" }
+tarb = { key = "${ARBISCAN_KEY}", url = "https://api-goerli.arbiscan.io/api" }
+# mainnet
+ethereum = { key = "${ETHERSCAN_KEY}" }
+bsc = { key = "${BSCSCAN_KEY}", url = "https://api.bscscan.com/api" }
+avalanche = { key = "${SNOWTRACE_KEY}", url = "https://api.snowtrace.io/api" }
+polygon = { key = "${POLYGONSCAN_KEY}", url = "https://api.polygonscan.com/api" }
+arbitrum = { key = "${ARBISCAN_KEY}", url = "https://api.arbiscan.io/api" }
+
+[rpc_endpoints]
+# testnet rpc endpoints
+goerli = "${RPC_URL_GOERLI}"
+tbsc = "${RPC_URL_TBSC}"
+fuji = "${RPC_URL_FUJI}"
+mumbai = "${RPC_URL_MUMBAI}"
+tarb = "${RPC_URL_TARB}"
+# mainnet rpc endpoints
+ethereum = "${RPC_URL_ETHER}"
+bsc = "${RPC_URL_BSC}"
+avalanche = "${RPC_URL_AVALANCHE}"
+polygon = "${RPC_URL_POLYGON}"
+arbitrum = "${RPC_URL_ARBITRUM}"
